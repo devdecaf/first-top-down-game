@@ -2,10 +2,8 @@ extends CharacterBody2D
 
 ## The max speed that the player will move around the map
 @export var max_speed := 500.0
-
 ## How quickly the player gets up to max speed
 @export var acceleration := 2500.0
-
 ## How quickly the player stops moving
 @export var deceleration := 3000.0
 
