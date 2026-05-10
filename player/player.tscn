@@ -14,7 +14,8 @@ script = ExtResource("1_g1dw6")
 [node name="Shadow" parent="." unique_id=863946851 instance=ExtResource("1_rkbax")]
 position = Vector2(0, 35)
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=2048090110]
+[node name="Skin" type="Sprite2D" parent="." unique_id=2048090110]
+unique_name_in_owner = true
 position = Vector2(0, -40)
 texture = ExtResource("1_oul6g")
 
@@ -22,4 +23,3 @@ texture = ExtResource("1_oul6g")
 shape = SubResource("CircleShape2D_rkbax")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=868536674]
-visible = false
