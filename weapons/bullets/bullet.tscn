@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://cs55p4on85fs5"]
+
+[ext_resource type="Script" uid="uid://byqqd01yqc27l" path="res://weapons/bullets/bullet.gd" id="1_0dwqp"]
+[ext_resource type="Texture2D" uid="uid://dxe2pniv6kdn4" path="res://weapons/bullets/fire_trail.png" id="1_d6jwi"]
+[ext_resource type="Texture2D" uid="uid://bgn8fvhkjniwn" path="res://weapons/bullets/fire.png" id="2_0dwqp"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_d6jwi"]
+
+[node name="Bullet" type="Area2D" unique_id=1987809421]
+script = ExtResource("1_0dwqp")
+
+[node name="Trail" type="Sprite2D" parent="." unique_id=272514833]
+position = Vector2(-35, 0)
+texture = ExtResource("1_d6jwi")
+
+[node name="Skin" type="Sprite2D" parent="." unique_id=367574899]
+texture = ExtResource("2_0dwqp")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1087575770]
+scale = Vector2(1.5, 1.5)
+shape = SubResource("CircleShape2D_d6jwi")
