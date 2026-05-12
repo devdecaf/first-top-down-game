@@ -6,18 +6,19 @@ extends Area2D
 ## The maximum distance the bullet will travel
 @export var max_range := 1000.0
 
-var starting_position: Vector2
+var _starting_position: Vector2
+var _direction: Vector2
 
 
 func _ready() -> void:
-	starting_position = global_position
+	_starting_position = global_position
+	_direction = Vector2.RIGHT.rotated(rotation)
 
 
 func _physics_process(delta: float) -> void:
-	var direction := Vector2.RIGHT.rotated(rotation)
-	global_position += direction * speed * delta
+	global_position += _direction * speed * delta
 
-	if starting_position.distance_to(global_position) >= max_range:
+	if _starting_position.distance_to(global_position) >= max_range:
 		_destroy()
 
 
