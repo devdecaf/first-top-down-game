@@ -9,7 +9,7 @@ extends Node2D
 @export var max_range := 2000.0
 ## The maximum speed at which the bullet will travel
 @export var max_bullet_speed := 1150.0
-## The maximum amount of random rotation to add to the bullet
+## The maximum amount of random rotation to add to the bullet (in radians)
 @export_range(0.0, PI / 4, 0.01) var max_random_angle = 0.0
 
 
