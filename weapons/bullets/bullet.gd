@@ -12,7 +12,7 @@ var _direction: Vector2
 
 func _ready() -> void:
 	_starting_position = global_position
-	_direction = Vector2.RIGHT.rotated(rotation)
+	_direction = Vector2.RIGHT.rotated(global_rotation)
 
 
 func _physics_process(delta: float) -> void:
