@@ -30,10 +30,12 @@ func _get_configuration_warnings() -> PackedStringArray:
 
 func shoot() -> void:
 	var bullet: Bullet = bullet_scene.instantiate()
+	get_tree().current_scene.add_child(bullet)
+	
 	bullet.max_range = max_range
 	bullet.speed = max_bullet_speed
-	bullet.rotation = randf_range(-max_random_angle, max_random_angle)
-	add_child(bullet)
+	bullet.rotation = rotation + randf_range(-max_random_angle, max_random_angle)
+	bullet.position = position
 
 
 func _set_bullet_scene(new_bullet_scene: PackedScene) -> void:

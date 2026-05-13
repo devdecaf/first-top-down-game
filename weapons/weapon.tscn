@@ -4,6 +4,5 @@
 [ext_resource type="PackedScene" uid="uid://cs55p4on85fs5" path="res://weapons/bullets/bullet.tscn" id="2_pxh0k"]
 
 [node name="Weapon" type="Node2D" unique_id=749565653]
-rotation = 1.0105456
 script = ExtResource("1_rma5x")
 bullet_scene = ExtResource("2_pxh0k")

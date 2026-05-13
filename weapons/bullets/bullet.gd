@@ -7,20 +7,19 @@ extends Area2D
 @export var max_range := 1000.0
 
 var _starting_position: Vector2
-var _direction: Vector2
 
 
 func _ready() -> void:
-	_starting_position = global_position
-	_direction = Vector2.RIGHT.rotated(global_rotation)
+	_starting_position = position
 
 
 func _physics_process(delta: float) -> void:
-	global_position += _direction * speed * delta
+	var direction := Vector2.RIGHT.rotated(rotation)
+	position += direction * speed * delta
 
-	if _starting_position.distance_to(global_position) >= max_range:
-		_destroy()
+	if _starting_position.distance_to(position) >= max_range:
+		destroy()
 
 
-func _destroy() -> void:
+func destroy() -> void:
 	queue_free()
