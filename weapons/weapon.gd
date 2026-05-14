@@ -34,8 +34,8 @@ func shoot() -> void:
 	
 	bullet.max_range = max_range
 	bullet.speed = max_bullet_speed
-	bullet.rotation = rotation + randf_range(-max_random_angle, max_random_angle)
-	bullet.position = position
+	bullet.rotation = global_rotation + randf_range(-max_random_angle, max_random_angle)
+	bullet.position = global_position
 
 
 func _set_bullet_scene(new_bullet_scene: PackedScene) -> void:
