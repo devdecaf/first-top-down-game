@@ -1,0 +1,26 @@
+[gd_scene format=3 uid="uid://c0i2gypp2yyrp"]
+
+[ext_resource type="Texture2D" uid="uid://nohjoiah3jgr" path="res://mobs/sword_inactive.png" id="1_bteyy"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_bteyy"]
+radius = 20.0
+height = 130.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_bteyy"]
+radius = 800.0
+
+[node name="Mob" type="CharacterBody2D" unique_id=986712]
+motion_mode = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1106188566]
+rotation = -1.5707964
+shape = SubResource("CapsuleShape2D_bteyy")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=284941489]
+texture = ExtResource("1_bteyy")
+
+[node name="DetectionArea" type="Area2D" parent="." unique_id=2122928911]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DetectionArea" unique_id=586188862]
+shape = SubResource("CircleShape2D_bteyy")
+debug_color = Color(0.1001076, 0.6485884, 3.85046e-07, 0.41960785)
