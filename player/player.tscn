@@ -3,6 +3,8 @@
 [ext_resource type="Script" uid="uid://bml0yexgmjr54" path="res://player/player.gd" id="1_g1dw6"]
 [ext_resource type="Texture2D" uid="uid://bw03btxpkxde4" path="res://player/godot_bottom.png" id="1_oul6g"]
 [ext_resource type="PackedScene" uid="uid://5ays6kuo0xio" path="res://common/shadow.tscn" id="1_rkbax"]
+[ext_resource type="PackedScene" uid="uid://cmcxoh45b2757" path="res://weapons/weapon.tscn" id="4_yw30f"]
+[ext_resource type="Texture2D" uid="uid://dekkcmj408pvt" path="res://player/hand_fire.png" id="5_qjkh3"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_rkbax"]
 radius = 20.0
@@ -21,5 +23,26 @@ texture = ExtResource("1_oul6g")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=658112873]
 shape = SubResource("CircleShape2D_rkbax")
+
+[node name="WeaponPivot" type="Node2D" parent="." unique_id=1199511642]
+
+[node name="WeaponAnchor" type="Marker2D" parent="WeaponPivot" unique_id=1368763634]
+unique_name_in_owner = true
+position = Vector2(70, 0)
+
+[node name="Weapon" parent="WeaponPivot/WeaponAnchor" unique_id=749565653 instance=ExtResource("4_yw30f")]
+
+[node name="HandLeft" type="Sprite2D" parent="WeaponPivot/WeaponAnchor" unique_id=107223397]
+position = Vector2(5, -20)
+rotation = -0.2617994
+scale = Vector2(0.75, 0.75)
+texture = ExtResource("5_qjkh3")
+
+[node name="HandRight" type="Sprite2D" parent="WeaponPivot/WeaponAnchor" unique_id=1966805915]
+position = Vector2(5, 20)
+rotation = 0.2617994
+scale = Vector2(0.75, 0.75)
+texture = ExtResource("5_qjkh3")
+flip_v = true
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=868536674]
