@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://c0i2gypp2yyrp"]
 
 [ext_resource type="Texture2D" uid="uid://nohjoiah3jgr" path="res://mobs/sword_inactive.png" id="1_bteyy"]
+[ext_resource type="Script" uid="uid://cxodc6xq7oi85" path="res://mobs/mob.gd" id="1_fgbma"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_bteyy"]
 radius = 20.0
@@ -11,6 +12,7 @@ radius = 800.0
 
 [node name="Mob" type="CharacterBody2D" unique_id=986712]
 motion_mode = 1
+script = ExtResource("1_fgbma")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1106188566]
 rotation = -1.5707964
@@ -20,6 +22,7 @@ shape = SubResource("CapsuleShape2D_bteyy")
 texture = ExtResource("1_bteyy")
 
 [node name="DetectionArea" type="Area2D" parent="." unique_id=2122928911]
+unique_name_in_owner = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DetectionArea" unique_id=586188862]
 shape = SubResource("CircleShape2D_bteyy")
