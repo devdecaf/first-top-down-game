@@ -13,10 +13,11 @@ var _starting_position: Vector2
 
 func _ready() -> void:
 	_starting_position = position
-	body_entered.connect(func (body: Node):
-		if body is Mob:
-			(body as Mob).health -= damage
-			destroy()
+	body_entered.connect(
+		func(body: Node):
+			if body is Mob:
+				(body as Mob).health -= damage
+				destroy()
 	)
 
 

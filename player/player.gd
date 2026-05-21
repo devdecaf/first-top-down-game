@@ -13,12 +13,18 @@ const DOWN_RIGHT = Vector2.DOWN + Vector2.RIGHT
 
 ## The max speed that the player will move around the map
 @export var max_speed := 500.0
+## The max health of the player
+@export var max_health := 100
 ## How quickly the player gets up to max speed
 @export var acceleration := 2500.0
 ## How quickly the player stops moving
 @export var deceleration := 3000.0
 
 @onready var _skin: Sprite2D = %Skin
+@onready var _collision_shape_2d: CollisionShape2D = %CollisionShape2D
+@onready var _health_bar: TextureProgressBar = %HealthBar
+@onready var _health := max_health:
+	set = _set_health
 
 
 func _physics_process(delta: float) -> void:
@@ -46,3 +52,17 @@ func _physics_process(delta: float) -> void:
 
 	if direction.length() > 0.0:
 		_skin.flip_h = direction.x < 0.0
+
+
+func _set_health(new_health: int) -> void:
+	_health = clampi(new_health, 0, max_health)
+	_health_bar.value = _health * 100.0 / max_health
+	if _health == 0:
+		_die()
+
+
+func _die() -> void:
+	if is_physics_processing():
+		set_physics_process(false)
+	if not _collision_shape_2d.disabled:
+		_collision_shape_2d.set_deferred("disabled", true)
