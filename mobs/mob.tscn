@@ -11,6 +11,8 @@ height = 130.0
 radius = 800.0
 
 [node name="Mob" type="CharacterBody2D" unique_id=986712]
+collision_layer = 4
+collision_mask = 0
 motion_mode = 1
 script = ExtResource("1_fgbma")
 
