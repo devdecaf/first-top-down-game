@@ -8,13 +8,21 @@ extends CharacterBody2D
 ## The amount of damage the mob can take before it dies
 @export var health := 3:
 	set = _set_health
+## The amount of damage that the mob inflicts on the player
+@export var damage := 15
+## The amount of time to wait before inflicting damage (in seconds)
+@export var time_between_damage := 3
 
 var _player: Player = null
 
 @onready var _detection_area: Area2D = %DetectionArea
+@onready var _hit_box: Area2D = $HitBox
+@onready var _damage_timer: Timer = %DamageTimer
 
 
 func _ready() -> void:
+	_damage_timer.wait_time = time_between_damage
+
 	_detection_area.body_entered.connect(
 		func(body: Node) -> void:
 			if body is Player:
@@ -25,6 +33,26 @@ func _ready() -> void:
 		func(body: Node) -> void:
 			if body is Player:
 				_player = null
+	)
+
+	_hit_box.body_entered.connect(
+		func(body: Node) -> void:
+			if body is Player and _damage_timer.is_stopped():
+				_player._health -= damage
+				_damage_timer.start()
+	)
+
+	_hit_box.body_exited.connect(
+		func(body: Node) -> void:
+			if body is Player:
+				_damage_timer.stop()
+	)
+
+	_damage_timer.timeout.connect(
+		func() -> void:
+			if _player != null:
+				_player._health -= damage
+				_damage_timer.start()
 	)
 
 

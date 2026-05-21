@@ -29,3 +29,16 @@ unique_name_in_owner = true
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DetectionArea" unique_id=586188862]
 shape = SubResource("CircleShape2D_bteyy")
 debug_color = Color(0.1001076, 0.6485884, 3.85046e-07, 0.41960785)
+
+[node name="HitBox" type="Area2D" parent="." unique_id=1724374666]
+collision_layer = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox" unique_id=1188400180]
+rotation = -1.5707964
+scale = Vector2(1.2800006, 1.2800006)
+shape = SubResource("CapsuleShape2D_bteyy")
+debug_color = Color(0.8392311, 0.0011824763, 0.9261948, 0.41960785)
+
+[node name="DamageTimer" type="Timer" parent="." unique_id=2007498949]
+unique_name_in_owner = true
+one_shot = true

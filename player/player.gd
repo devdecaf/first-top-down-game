@@ -22,6 +22,8 @@ const DOWN_RIGHT = Vector2.DOWN + Vector2.RIGHT
 
 @onready var _skin: Sprite2D = %Skin
 @onready var _collision_shape_2d: CollisionShape2D = %CollisionShape2D
+@onready var _weapon_pivot: WeaponPivot = %WeaponPivot
+@onready var _weapon: Weapon = %Weapon
 @onready var _health_bar: TextureProgressBar = %HealthBar
 @onready var _health := max_health:
 	set = _set_health
@@ -62,7 +64,8 @@ func _set_health(new_health: int) -> void:
 
 
 func _die() -> void:
-	if is_physics_processing():
-		set_physics_process(false)
-	if not _collision_shape_2d.disabled:
-		_collision_shape_2d.set_deferred("disabled", true)
+	set_physics_process(false)
+	_weapon_pivot.set_process(false)
+	_weapon_pivot.set_process_unhandled_input(false)
+	_weapon.set_process_input(false)
+	_collision_shape_2d.set_deferred("disabled", true)

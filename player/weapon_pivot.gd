@@ -11,9 +11,9 @@ var _input_device := InputDevice.MOUSE
 
 func _process(delta: float) -> void:
 	var direction := (
-		global_position.direction_to(get_global_mouse_position())
-		if _input_device == InputDevice.MOUSE
-		else Input.get_vector("look_left", "look_right", "look_up", "look_down")
+			global_position.direction_to(get_global_mouse_position())
+			if _input_device == InputDevice.MOUSE
+			else Input.get_vector("look_left", "look_right", "look_up", "look_down")
 	)
 
 	if direction.length() > 0.0:
